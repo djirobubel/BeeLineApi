@@ -16,7 +16,7 @@ namespace BeeLineApi.Commands.DeleteFriend
             _userRepository = userRepository;
         }
 
-        public async Task<DeleteFriendResult> Handle(DeleteFriendCommand request, 
+        public async Task<DeleteFriendResult> Handle(DeleteFriendCommand request,
             CancellationToken cancellationToken)
         {
             var friend = await _friendRepository.GetFriendByIdAsync(request.FriendId);

@@ -17,6 +17,7 @@ namespace BeeLineApi.Controllers
             _mediator = mediator;
         }
 
+        //Метод регистрации пользователя.
         [HttpPost("register")]
         [ProducesResponseType(typeof(RegisterUserResult), 200)]
         [ProducesResponseType(400)]
@@ -27,6 +28,7 @@ namespace BeeLineApi.Controllers
             return result.IsRegistered == true ? Ok(result) : BadRequest();
         }
 
+        //Метод авторизации пользователя.
         [HttpPost("login")]
         [ProducesResponseType(typeof(LoginUserResult), 200)]
         [ProducesResponseType(400)]

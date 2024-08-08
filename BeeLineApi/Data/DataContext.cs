@@ -8,12 +8,12 @@ namespace BeeLineApi.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-                
+
         }
 
         public DataContext()
         {
-            
+
         }
 
         public DbSet<Friend> Friends { get; set; }

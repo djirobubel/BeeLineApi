@@ -23,7 +23,7 @@ namespace BeeLineApi.Commands.LoginUser
             if (existingUser == null)
                 throw new ArgumentException("User not found.");
 
-            var isPasswordCorrect = await _userRepository.CheckPasswordAsync(existingUser, 
+            var isPasswordCorrect = await _userRepository.CheckPasswordAsync(existingUser,
                 request.Password);
 
             if (!isPasswordCorrect)

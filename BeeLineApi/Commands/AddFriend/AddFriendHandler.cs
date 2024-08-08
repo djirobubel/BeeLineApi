@@ -9,7 +9,7 @@ namespace BeeLineApi.Commands.AddFriend
         private readonly IFriendRepository _friendRepository;
         private readonly IUserRepository _userRepository;
 
-        public AddFriendHandler(IFriendRepository friendRepository, 
+        public AddFriendHandler(IFriendRepository friendRepository,
             IUserRepository userRepository)
         {
             _friendRepository = friendRepository;

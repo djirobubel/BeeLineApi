@@ -24,8 +24,8 @@ namespace BeeLineApi.Commands.RegisterUser
             };
 
             var result = await _userRepository.RegisterUserAsync(user);
-            
-            return new RegisterUserResult { IsRegistered = result};
+
+            return new RegisterUserResult { IsRegistered = result };
         }
     }
 }

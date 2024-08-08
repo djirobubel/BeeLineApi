@@ -23,6 +23,7 @@ namespace BeeLineApi.Controllers
             _mediator = mediator;
         }
 
+        //Метод просмотра списка друзей + информация о профиле.
         [HttpGet]
         [ProducesResponseType(typeof(GetUserProfileResult), 200)]
         [ProducesResponseType(400)]
@@ -32,6 +33,7 @@ namespace BeeLineApi.Controllers
             return Ok(result);
         }
 
+        //Метод просмотра детальной информации о друге.
         [HttpGet("{friendId}")]
         [ProducesResponseType(typeof(GetFriendProfileResult), 200)]
         [ProducesResponseType(400)]
@@ -41,6 +43,7 @@ namespace BeeLineApi.Controllers
             return Ok(result);
         }
 
+        //Метод добавления в друзья.
         [HttpPost]
         [ProducesResponseType(typeof(AddFriendResult), 204)]
         [ProducesResponseType(400)]
@@ -52,17 +55,19 @@ namespace BeeLineApi.Controllers
             return Ok(result);
         }
 
+        //Метод изменения статуса близкого друга.
         [HttpPut("{friendId}/status")]
         [ProducesResponseType(typeof(ChangeStatusResult), 204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> ChangeStatus(string friendId, 
+        public async Task<IActionResult> ChangeStatus(string friendId,
             [FromBody] ChangeStatusCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
         }
 
+        //Метод удаления из друзей.
         [HttpDelete("{friendId}")]
         [ProducesResponseType(typeof(DeleteFriendResult), 204)]
         [ProducesResponseType(400)]

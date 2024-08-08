@@ -10,5 +10,5 @@ namespace BeeLineApi.Interface
         Task<bool> CheckPasswordAsync(Profile user, string password);
         Task<Profile> GetUserProfileAsync(string userName);
         Task<Profile> GetFriendProfileAsync(string friendId);
-    } 
+    }
 }

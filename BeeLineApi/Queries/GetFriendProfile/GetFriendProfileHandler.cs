@@ -14,7 +14,7 @@ namespace BeeLineApi.Queries.GetFriendProfile
             _userRepository = userRepository;
         }
 
-        public async Task<GetFriendProfileResult> Handle(GetFriendProfileQuery request, 
+        public async Task<GetFriendProfileResult> Handle(GetFriendProfileQuery request,
             CancellationToken cancellationToken)
         {
             var friend = await _userRepository.GetFriendProfileAsync(request.FriendId);
