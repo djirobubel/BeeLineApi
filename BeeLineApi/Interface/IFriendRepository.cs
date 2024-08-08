@@ -7,5 +7,6 @@ namespace BeeLineApi.Interface
         Task<int> AddFriendAsync(Friend friend);
         Task<Friend> GetFriendByIdAsync(string friendId);
         int DeleteFriend(Friend friend);
+        Task<int> ChangeStatusAsync(Friend friend);
     }
 }

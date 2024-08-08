@@ -9,15 +9,11 @@ namespace BeeLineApi.Commands.ChangeStatus
         ChangeStatusResult>
     {
         private readonly IFriendRepository _friendRepository;
-        private readonly DataContext _context;
-        private readonly IUserRepository _userRepository;
 
-        public ChangeStatusHandler(IFriendRepository friendRepository, DataContext context,
-            IUserRepository userRepository)
+        public ChangeStatusHandler(IFriendRepository friendRepository)
         {
             _friendRepository = friendRepository;
-            _context = context;
-            _userRepository = userRepository;
+
         }
 
         public async Task<ChangeStatusResult> Handle(ChangeStatusCommand request,
@@ -27,8 +23,7 @@ namespace BeeLineApi.Commands.ChangeStatus
 
             friend.IsCloseFriend = request.IsCloseFriend;
 
-            _context.Entry(friend).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            await _friendRepository.ChangeStatusAsync(friend);
 
             return new ChangeStatusResult { Message = "Successfully updated" };
         }

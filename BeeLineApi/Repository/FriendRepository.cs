@@ -20,6 +20,12 @@ namespace BeeLineApi.Repository
             return await _context.SaveChangesAsync();
         }
 
+        public async Task<int> ChangeStatusAsync(Friend friend)
+        {
+            _context.Entry(friend).State = EntityState.Modified;
+            return await _context.SaveChangesAsync();
+        }
+
         public int DeleteFriend(Friend friend)
         {
             _context.Friends.Remove(friend);
