@@ -25,7 +25,8 @@ namespace BeeLineApi.Commands.AddFriend
             {
                 UserId = user.Id,
                 FriendId = request.FriendId,
-                IsCloseFriend = request.IsCloseFriend
+                IsCloseFriend = request.IsCloseFriend,
+                FriendshipStartDate = DateTime.UtcNow
             };
 
             await _friendRepository.AddFriendAsync(friend1);
@@ -34,7 +35,8 @@ namespace BeeLineApi.Commands.AddFriend
             {
                 UserId = request.FriendId,
                 FriendId = user.Id,
-                IsCloseFriend = request.IsCloseFriend
+                IsCloseFriend = request.IsCloseFriend,
+                FriendshipStartDate = DateTime.UtcNow
             };
 
             await _friendRepository.AddFriendAsync(friend2);
