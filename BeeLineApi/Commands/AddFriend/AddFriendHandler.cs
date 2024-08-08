@@ -19,7 +19,15 @@ namespace BeeLineApi.Commands.AddFriend
         public async Task<AddFriendResult> Handle(AddFriendCommand request,
             CancellationToken cancellationToken)
         {
-            var user = await _userRepository.FindUserByNameAsync(request.UserName);
+            var user = await _userRepository.GetUserProfileAsync(request.UserName);
+
+            var friends = user.Friends;
+
+            foreach(var friend in friends)
+            {
+                if (request.FriendId == friend.FriendId)
+                    throw new ArgumentException("Already a friend.");
+            }
 
             var friend1 = new Friend
             {

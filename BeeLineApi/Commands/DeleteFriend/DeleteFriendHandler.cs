@@ -20,6 +20,10 @@ namespace BeeLineApi.Commands.DeleteFriend
             CancellationToken cancellationToken)
         {
             var friend = await _friendRepository.GetFriendByIdAsync(request.FriendId);
+
+            if (friend == null)
+                throw new ArgumentException("Friend not found.");
+
             _friendRepository.DeleteFriend(friend);
 
             var user = await _userRepository.FindUserByNameAsync(request.UserName);

@@ -19,6 +19,9 @@ namespace BeeLineApi.Commands.ChangeStatus
         {
             var friend = await _friendRepository.GetFriendByIdAsync(request.FriendId);
 
+            if (friend == null)
+                throw new ArgumentException("Friend not found");
+
             friend.IsCloseFriend = request.IsCloseFriend;
 
             await _friendRepository.ChangeStatusAsync(friend);
