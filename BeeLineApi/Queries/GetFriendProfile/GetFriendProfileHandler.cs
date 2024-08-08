@@ -1,6 +1,5 @@
 ﻿using BeeLineApi.Dto;
 using BeeLineApi.Interface;
-using BeeLineApi.Queries.GetUserProfile;
 using MediatR;
 
 namespace BeeLineApi.Queries.GetFriendProfile

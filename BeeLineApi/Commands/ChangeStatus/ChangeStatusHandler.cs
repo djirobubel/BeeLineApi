@@ -1,7 +1,5 @@
-﻿using BeeLineApi.Data;
-using BeeLineApi.Interface;
+﻿using BeeLineApi.Interface;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace BeeLineApi.Commands.ChangeStatus
 {
