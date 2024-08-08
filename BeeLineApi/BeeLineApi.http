@@ -1,0 +1,6 @@
+@BeeLineApi_HostAddress = http://localhost:5037
+
+GET {{BeeLineApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
